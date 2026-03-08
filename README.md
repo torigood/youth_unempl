@@ -107,6 +107,48 @@ From 2023–2024, big tech layoffs pushed the rate slightly upward again as the 
 
 ---
 
+## Modeling
+
+See [`model.ipynb`](model.ipynb) for the full analysis.
+
+### Why first-differenced data?
+The raw series are non-stationary (unit roots), which breaks OLS assumptions. First-differencing makes the series stationary — so the model works with month-over-month changes rather than levels.
+
+### Models
+
+| Model | Description |
+|---|---|
+| OLS ADL (lag-2) | Autoregressive Distributed Lag — 2 AR lags on target, 1 lag on each macro variable, HC3 robust SEs |
+| OLS ADL (lag-3) | Same as above but extended to 3 AR lags + 2nd lag on macro variables |
+| ARIMAX | Grid-searched (p, q) by AIC; d=0 since data is already differenced |
+
+An `is_crisis` dummy covers 2008 GFC and 2020 COVID — both are structural breaks that lag terms alone can't absorb.
+
+### Results
+
+All three models beat the naive "no change" baseline by ~7–9%:
+
+| Model | RMSE | MAE |
+|---|---|---|
+| Naive (no change) | 0.9095 | 0.7532 |
+| OLS (lag-2) | 0.8540 | 0.6847 |
+| OLS (lag-3) | 0.8485 | 0.6878 |
+| ARIMAX | 0.8421 | 0.6853 |
+
+The three models perform nearly identically — the test period (2022–) covers a regime the model has never seen (post-COVID normalization + Fed rate hike cycle), which puts a ceiling on how well any of them can do.
+
+### Key finding: coefficient analysis
+
+Only `unrate` and `unrate_lag1` had statistically significant, practically meaningful coefficients:
+
+1. **`unrate` coef ~1.8**: a 1pp rise in overall unemployment drives a ~1.8pp rise in youth unemployment. The shock is amplified — young workers absorb a disproportionate share of any labor market downturn.
+2. **`fed_funds` and `cpi` insignificant**: rate hikes have no direct channel to youth unemployment. The Fed tightening cycle affects youth employment only indirectly, through the broader labor market.
+3. **`unrate_lag1` negative**: an overshoot-correct pattern — the initial shock is larger than what actually sticks, and partially reverses the following month.
+
+The main takeaway isn't that the model is weak — it's that **youth unemployment is structurally tied to the overall labor market, not an independent response to monetary or price variables**.
+
+---
+
 ## Project Structure
 
 ```
