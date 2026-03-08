@@ -28,7 +28,7 @@
 
 | 변수 | 출처 | 설명 |
 |---|---|---|
-| `youth_unempl` | FRED (SLUEM1524ZSUSA) | 청년 실업률 (15~24세) |
+| `youth_unempl` | FRED (LNS14000012) | 청년 실업률 (15~24세) |
 | `fed_funds` | FRED (FEDFUNDS) | 연방기금 실효금리 |
 | `cpi` | FRED (CPIAUCSL) | 소비자물가지수 (전년 대비 % 변화) |
 | `unrate` | FRED (UNRATE) | 전체 실업률 |
@@ -109,9 +109,9 @@
 
 ---
 
-## 모델링
+## 회귀 분석
 
-전체 분석은 [`model.ipynb`](model.ipynb) 참조.
+전체 분석은 [`regression_analysis.ipynb`](regression_analysis.ipynb) 참조.
 
 ### 왜 차분 데이터를 사용했나?
 원본 시계열은 단위근을 가진 비정상(non-stationary) 데이터라 OLS 가정을 위반한다. 1차 차분으로 정상성을 확보해 월별 변화량을 기준으로 모델을 적합했다.

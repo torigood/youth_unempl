@@ -28,7 +28,7 @@ This project looks at U.S. youth unemployment from 1991 to 2025 from two angles:
 
 | Variable | Source | Description |
 |---|---|---|
-| `youth_unempl` | FRED (SLUEM1524ZSUSA) | Youth unemployment rate, ages 15–24 |
+| `youth_unempl` | FRED (LNS14000012) | Youth unemployment rate, ages 15–24 |
 | `fed_funds` | FRED (FEDFUNDS) | Federal funds effective rate |
 | `cpi` | FRED (CPIAUCSL) | Consumer Price Index (YoY % change) |
 | `unrate` | FRED (UNRATE) | Overall unemployment rate |
@@ -107,9 +107,9 @@ From 2023–2024, big tech layoffs pushed the rate slightly upward again as the 
 
 ---
 
-## Modeling
+## Regression Analysis
 
-See [`model.ipynb`](model.ipynb) for the full analysis.
+See [`regression_analysis.ipynb`](regression_analysis.ipynb) for the full analysis.
 
 ### Why first-differenced data?
 The raw series are non-stationary (unit roots), which breaks OLS assumptions. First-differencing makes the series stationary — so the model works with month-over-month changes rather than levels.
