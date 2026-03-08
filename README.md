@@ -135,7 +135,7 @@ All three models beat the naive "no change" baseline by ~7–9%:
 | OLS (lag-3) | 0.8485 | 0.6878 |
 | ARIMAX | 0.8421 | 0.6853 |
 
-![OLS vs ARIMAX: Actual vs Predicted](data/img/ols_vs_arimax.png)
+![OLS vs ARIMAX: Actual vs Predicted](data/img/OLS%20vs%20ARIMAX.png)
 
 The three models perform nearly identically — the test period (2022–) covers a regime the model has never seen (post-COVID normalization + Fed rate hike cycle), which puts a ceiling on how well any of them can do.
 
