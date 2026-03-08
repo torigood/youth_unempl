@@ -8,7 +8,10 @@
 
 Youth unemployment is a growing concern worldwide, accelerated by the rise of AI. As a 2nd-year mathematics student preparing for co-op in Canada — where only **15% of math students land their first co-op** without prior experience — this topic hits close to home.
 
-This project analyzes U.S. youth unemployment data from 1991 to 2025, examining how each economic crisis impacted youth employment, how recovery speeds differed across crises, and what historical patterns tell us about the current and future outlook.
+This project looks at U.S. youth unemployment from 1991 to 2025 from two angles:
+
+1. **Descriptive analysis**: how each economic crisis hit youth employment differently, why recovery speeds varied, and what the historical pattern looks like leading into the AI era.
+2. **Statistical modeling**: whether macro variables — interest rates, inflation, industrial output — actually move youth unemployment, or whether the series just follows the broader labor market.
 
 ---
 
